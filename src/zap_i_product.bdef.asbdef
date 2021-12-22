@@ -7,7 +7,7 @@ lock master
 //etag master <field_name>
 {
   field(readonly,numbering : managed) prod_uuid;
-  field(readonly) ChangeTime, ChangedBy, CreatedBy, CreationTime,sizeuom;
+  field(readonly) ChangeTime, ChangedBy, CreatedBy, CreationTime;
   field(mandatory) Prodid, pgid, Price, price_currency;
 
   create;

@@ -24,14 +24,17 @@ define root view entity zap_c_product as projection on ZAP_I_PRODUCT {
       @UI.hidden: true
       _PGroup.Pgname as Pgname,
      @UI: {
-          lineItem:       [ { position: 30, importance: #LOW } ],
-          identification: [ { position: 30, label: 'Phase' } ] }
-  
-    Phase,
+          lineItem:       [ { position: 30, importance: #LOW, label: 'Phase', criticality: 'phaseid' }],
+          identification: [ { position: 30, label: 'Phase', criticality: 'phaseid'} ] }
+   @Consumption.valueHelpDefinition: [{ entity : {name: 'ZAP_I_PHASE', element: 'phaseid'  } }]
+   @Search.defaultSearchElement: true
+   @ObjectModel.text.element: ['Phase']
+    phaseid,
+    @UI.hidden: true
+    _Phase.Phase as Phase,
     Height,
     Depth,
     Width,
-    SizeUom,
      @UI: {
           lineItem:       [ { position: 40, importance: #LOW } ],
           identification: [ { position: 40, label: 'Price' } ] }

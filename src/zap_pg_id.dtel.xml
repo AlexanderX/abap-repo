@@ -10,11 +10,11 @@
     <SCRLEN1>10</SCRLEN1>
     <SCRLEN2>20</SCRLEN2>
     <SCRLEN3>40</SCRLEN3>
-    <DDTEXT>zap_pg_id</DDTEXT>
-    <REPTEXT>Phase ID</REPTEXT>
-    <SCRTEXT_S>Phase ID</SCRTEXT_S>
-    <SCRTEXT_M>Phase ID</SCRTEXT_M>
-    <SCRTEXT_L>Phase ID</SCRTEXT_L>
+    <DDTEXT>Progect Group ID</DDTEXT>
+    <REPTEXT>Progect Group ID</REPTEXT>
+    <SCRTEXT_S>Progect Gr</SCRTEXT_S>
+    <SCRTEXT_M>Progect Group ID</SCRTEXT_M>
+    <SCRTEXT_L>Progect Group ID</SCRTEXT_L>
     <DTELMASTER>E</DTELMASTER>
     <REFKIND>D</REFKIND>
    </DD04V>

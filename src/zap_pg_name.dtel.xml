@@ -9,7 +9,11 @@
     <SCRLEN1>10</SCRLEN1>
     <SCRLEN2>20</SCRLEN2>
     <SCRLEN3>40</SCRLEN3>
-    <DDTEXT>zap_pg_name</DDTEXT>
+    <DDTEXT>Product group</DDTEXT>
+    <REPTEXT>Product group</REPTEXT>
+    <SCRTEXT_S>Product gr</SCRTEXT_S>
+    <SCRTEXT_M>Product group</SCRTEXT_M>
+    <SCRTEXT_L>Product group</SCRTEXT_L>
     <DTELMASTER>E</DTELMASTER>
     <DATATYPE>CHAR</DATATYPE>
     <LENG>000030</LENG>

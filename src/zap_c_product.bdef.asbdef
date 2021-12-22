@@ -1,0 +1,10 @@
+projection;
+
+
+define behavior for zap_c_product //alias <alias_name>
+{
+  field(readonly) Phase;
+  use create;
+  use update;
+  use delete;
+}

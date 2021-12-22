@@ -1,0 +1,4 @@
+@EndUserText.label: 'Product service definition'
+define service ZAP_UI_PRODUCT {
+  expose zap_c_product as Product;
+}

@@ -1,0 +1,5 @@
+CLASS zap_cl_bp_i_product DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zap_i_product.
+ENDCLASS.
+
+CLASS zap_cl_bp_i_product IMPLEMENTATION.
+ENDCLASS.

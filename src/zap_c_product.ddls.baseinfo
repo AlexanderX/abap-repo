@@ -4,7 +4,7 @@
 "FROM":
 [
 "ZAP_I_PG",
-"ZAP_I_PHASE",
+"ZAP_I_PHASE2",
 "ZAP_I_PRODUCT"
 ],
 "ASSOCIATED":

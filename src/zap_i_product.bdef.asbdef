@@ -1,4 +1,4 @@
-managed implementation in class zbp_ap_i_product unique;
+managed implementation in class zap_cl_bp_i_product unique;
 
 define behavior for ZAP_I_PRODUCT alias Product
 persistent table ZAP_D_PRODUCT
@@ -13,4 +13,6 @@ lock master
   create;
   update;
   delete;
+  internal action SetAdminData;
+  determination SetPhase on modify { field phaseid; }
 }

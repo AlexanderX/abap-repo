@@ -4,7 +4,7 @@ projection;
 define behavior for zap_c_product //alias <alias_name>
 {
 field(readonly) phaseid ;
- field(readonly) ChangeTime, ChangedBy, CreatedBy, CreationTime;
+ field(readonly) change_time, ChangedBy, CreatedBy, CreationTime, change_dat, change_tim;
   use create;
   use update;
   use delete;

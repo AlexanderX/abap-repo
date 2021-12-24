@@ -4,8 +4,19 @@ define behavior for ZAP_I_PRODUCT alias Product
 persistent table ZAP_D_PRODUCT
 lock master
 
-//etag master <field_name>
+etag master change_time
+	
+
+
+
 {
+
+mapping for ZAP_D_PRODUCT control ZAP_I_PRODUCT corresponding
+{
+  ChangedBy = changed_by;
+  CreatedBy = created_by;
+  CreationTime = creation_time;
+}
   field(readonly,numbering : managed) prod_uuid;
 
   field(mandatory) Prodid, pgid, Price, price_currency;
@@ -14,5 +25,6 @@ lock master
   update;
   delete;
   internal action SetAdminData;
-  determination SetPhase on modify { create; }
+  determination SetPhase on modify { field prod_uuid; }
+  validation validateProdid on save { create; field Prodid; }
 }

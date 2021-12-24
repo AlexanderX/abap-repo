@@ -6,6 +6,8 @@ CLASS lhc_product DEFINITION INHERITING FROM cl_abap_behavior_handler.
       IMPORTING keys FOR Product~SetPhase.
     METHODS SetAdminData FOR MODIFY
       IMPORTING keys FOR ACTION Product~SetAdminData.
+    METHODS validateProdid FOR VALIDATE ON SAVE
+      IMPORTING keys FOR Product~validateProdid.
 ENDCLASS.
 
 CLASS lhc_product IMPLEMENTATION.
@@ -26,7 +28,7 @@ CLASS lhc_product IMPLEMENTATION.
         UPDATE SET FIELDS
          WITH VALUE #( FOR key IN keys ( %tky    = key-%tky
                                           phaseid = '1'
-                                          CreatedBy = sy-uname ) )
+                                          ) )
 
 REPORTED DATA(lt_reported)
 .
@@ -40,20 +42,47 @@ REPORTED DATA(lt_reported)
 
   ENDMETHOD.
   METHOD setadmindata.
-   READ ENTITIES OF zap_i_product IN LOCAL MODE
-          ENTITY Product
-             ALL FIELDS
-             WITH CORRESPONDING #( keys )
-          RESULT DATA(lt_products)
-          FAILED DATA(lt_failed).
-  loop at lt_products assigning field-symbol(<ls_product>).
-    <ls_product>-ChangedBy = sy-uname.
-    <ls_product>-ChangeTime = cl_abap_context_info=>get_system_date(  ).
-  endloop.
-         MODIFY ENTITIES OF zap_i_product IN LOCAL MODE
+    READ ENTITIES OF zap_i_product IN LOCAL MODE
+           ENTITY Product
+              ALL FIELDS
+              WITH CORRESPONDING #( keys )
+           RESULT DATA(lt_products)
+           FAILED DATA(lt_failed).
+    LOOP AT lt_products ASSIGNING FIELD-SYMBOL(<ls_product>).
+      <ls_product>-ChangedBy = sy-uname.
+    ENDLOOP.
+    MODIFY ENTITIES OF zap_i_product IN LOCAL MODE
+ ENTITY Product
+   UPDATE FIELDS ( ChangedBy   )
+   WITH CORRESPONDING #( lt_products ).
+  ENDMETHOD.
+
+  METHOD validateProdid.
+    READ ENTITIES OF zap_i_product IN LOCAL MODE
       ENTITY Product
-        UPDATE FIELDS ( ChangedBy ChangeTime  )
-        WITH CORRESPONDING #( lt_products ).
+        FIELDS ( Prodid )
+        WITH CORRESPONDING #( keys )
+      RESULT DATA(lt_products).
+    IF NOT lt_products IS INITIAL.
+      SELECT FROM zap_d_product FIELDS prodid
+       FOR ALL ENTRIES IN @lt_products
+       WHERE prodid = @lt_products-Prodid
+       INTO TABLE @DATA(lt_product_db).
+      IF sy-subrc = 0.
+        LOOP AT lt_products ASSIGNING FIELD-SYMBOL(<ls_product>).
+          APPEND VALUE #( %tky = <ls_product>-%tky ) TO failed-product.
+
+          APPEND VALUE #( %tky = <ls_product>-%tky
+                          %msg = NEW zap_cl_messages(
+                                     textid = zap_cl_messages=>prodid_exists
+                                     severity = if_abap_behv_message=>severity-error
+                                     product_id = <ls_product>-Prodid )
+                          %element-Prodid = if_abap_behv=>mk-on
+                        ) TO reported-product.
+        ENDLOOP.
+      ENDIF.
+
+    ENDIF.
   ENDMETHOD.
 
 ENDCLASS.

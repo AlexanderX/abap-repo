@@ -84,23 +84,37 @@ define root view entity zap_c_product as projection on ZAP_I_PRODUCT {
           lineItem:       [ { position: 40, importance: #LOW } ],
           identification: [ { position: 40, label: 'Price' } ],
           fieldGroup: [{position: 10, qualifier: 'two' }] }
+          @Semantics.amount.currencyCode: 'price_currency'
     Price,
      @Consumption.valueHelpDefinition: [{entity: {name: 'I_Currency', element: 'Currency' }}]
-         @UI: {
-          lineItem:       [ { position: 40, importance: #LOW } ],
-          identification: [ { position: 40, label: 'Currency' } ],
-          fieldGroup: [{position: 10, qualifier: 'two' }] }
-   @UI.hidden: true
     price_currency,
     Taxrate,
      @UI: {
           identification: [ { position: 10, label: 'Created By' } ],
           fieldGroup: [{position: 10, qualifier: '3re' }] }
+           @Semantics.user.createdBy: true 
     CreatedBy,
         @UI: {
           identification: [ { position: 20, label: 'Created On' } ],
-          fieldGroup: [{position: 20, qualifier: '3re' }] }
+          fieldGroup: [{position: 10, qualifier: '3re' }] }
+          @Semantics.systemDateTime.createdAt: true
     CreationTime,
+     @UI: {
+          identification: [ { position: 30, label: 'Changed By' } ],
+          fieldGroup: [{position: 20, qualifier: '3re' }] }
+    @Semantics.user.lastChangedBy: true
     ChangedBy,
-    ChangeTime
+  @UI.hidden: true
+    @Semantics.systemDateTime.localInstanceLastChangedAt: true 
+    change_time,
+         @UI: {
+          identification: [ { position: 50, label: 'Changed On' } ],
+          fieldGroup: [{position: 20,qualifier: '3re' }] }
+    change_dat, 
+         @UI: {
+          identification: [ { position: 40, label: 'Changed At' } ],
+          fieldGroup: [{position: 20,qualifier: '3re' }] }
+    change_tim
+      
+    
 }

@@ -6,7 +6,9 @@
 "ZAP_D_PROD_MRKT"
 ],
 "ASSOCIATED":
-[],
+[
+"ZAP_I_PRODUCT"
+],
 "BASE":
 [],
 "ANNO_REF":

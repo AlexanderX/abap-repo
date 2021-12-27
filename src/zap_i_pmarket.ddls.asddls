@@ -1,6 +1,8 @@
 @EndUserText.label: 'Product to market'
 @AccessControl.authorizationCheck: #NOT_REQUIRED
-define root view entity ZAP_I_PMARKET as select from zap_d_prod_mrkt {
+define view entity ZAP_I_PMARKET as select from zap_d_prod_mrkt 
+association to parent ZAP_I_PRODUCT as _Product on $projection.ProdUuid = _Product.prod_uuid
+{
     key prod_uuid as ProdUuid,
     key mrkt_uuid as MrktUuid,
     mrktid as Mrktid,
@@ -14,5 +16,6 @@ define root view entity ZAP_I_PMARKET as select from zap_d_prod_mrkt {
     @Semantics.user.lastChangedBy: true
     changed_by as ChangedBy,
     @Semantics.systemDateTime.localInstanceLastChangedAt: true 
-    change_time as ChangeTime
+    change_time as ChangeTime,
+    _Product
 }

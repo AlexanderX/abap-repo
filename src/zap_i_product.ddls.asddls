@@ -1,6 +1,7 @@
 @EndUserText.label: 'Interface view'
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 define root view entity ZAP_I_PRODUCT as select from zap_d_product
+composition [0..*] of ZAP_I_PMARKET as _Market 
 association [0..1] to I_Currency      as _Currency on $projection.price_currency = _Currency.Currency
 association [0..1] to ZAP_I_PG      as _PGroup on $projection.pgid = _PGroup.pgid
 association [0..1] to ZAP_I_PHASE2     as _Phase on $projection.phaseid = _Phase.phaseid
@@ -38,6 +39,7 @@ tstmp_to_dats( change_time,
                      'NULL' )      as change_tim,
 _Currency,
 _PGroup,
-_Phase
+_Phase,
+_Market
     
 }

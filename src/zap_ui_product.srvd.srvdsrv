@@ -2,4 +2,5 @@
 define service ZAP_UI_PRODUCT {
   expose zap_c_product as Product;
   expose ZAP_I_PG as ProdictGroup;
+  expose ZAP_C_PMARKET as Market;
 }

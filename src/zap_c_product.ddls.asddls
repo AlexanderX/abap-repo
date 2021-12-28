@@ -29,7 +29,13 @@ define root view entity zap_c_product as projection on ZAP_I_PRODUCT {
        type: #FIELDGROUP_REFERENCE,
        targetQualifier: '3re',
        label: 'Admin Data'
-       }]
+       },
+       { id:              'Market', 
+         purpose: #STANDARD,
+         type:            #LINEITEM_REFERENCE,
+         label:           'Market Data',
+         targetElement: '_Market'  }
+                ]
     @UI.hidden: true
    key prod_uuid,
     @UI: {
@@ -114,7 +120,8 @@ define root view entity zap_c_product as projection on ZAP_I_PRODUCT {
          @UI: {
           identification: [ { position: 40, label: 'Changed At' } ],
           fieldGroup: [{position: 20,qualifier: '3re' }] }
-    change_tim
+    change_tim,
+    _Market : redirected to composition child ZAP_C_PMARKET
       
     
 }

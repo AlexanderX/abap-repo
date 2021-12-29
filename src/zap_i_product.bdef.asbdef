@@ -1,6 +1,7 @@
-managed implementation in class zap_cl_bp_i_product unique;
+managed ;
 
 define behavior for ZAP_I_PRODUCT alias Product
+implementation in class zap_cl_bp_i_product unique
 persistent table ZAP_D_PRODUCT
 lock master
 etag master change_time
@@ -20,7 +21,7 @@ mapping for ZAP_D_PRODUCT
   update;
   delete;
   association _Market { create; }
-  internal action SetAdminData;
+
   determination SetPhase on modify { field Price; }
   validation validateProdid on save { create; field Prodid; }
 }

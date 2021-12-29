@@ -3,15 +3,10 @@ managed implementation in class zap_cl_bp_i_product unique;
 define behavior for ZAP_I_PRODUCT alias Product
 persistent table ZAP_D_PRODUCT
 lock master
-
 etag master change_time
-	
-
-
 
 {
-
-mapping for ZAP_D_PRODUCT control ZAP_I_PRODUCT corresponding
+mapping for ZAP_D_PRODUCT
 {
   ChangedBy = changed_by;
   CreatedBy = created_by;
@@ -24,7 +19,27 @@ mapping for ZAP_D_PRODUCT control ZAP_I_PRODUCT corresponding
   create;
   update;
   delete;
+  association _Market { create; }
   internal action SetAdminData;
-  determination SetPhase on modify { field prod_uuid; }
+  determination SetPhase on modify { field Price; }
   validation validateProdid on save { create; field Prodid; }
+}
+
+define behavior for ZAP_I_PMARKET alias Market
+persistent table ZAP_D_PROD_MRKT
+lock dependent by _Product
+etag master ChangeTime
+{
+mapping for zap_d_mrkt_order
+{
+  ChangeTime = change_time;
+  ChangedBy = changed_by;
+  CreatedBy = created_by;
+  CreationTime = creation_time;
+}
+field(readonly,numbering : managed) mrkt_uuid;
+  update;
+  delete;
+  field ( readonly ) prod_uuid;
+  association _Product;
 }

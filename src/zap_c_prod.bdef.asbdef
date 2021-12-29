@@ -1,0 +1,12 @@
+projection;
+//strict; //Comment this line in to enable strict mode. The strict mode is prerequisite to be future proof regarding syntax and to be able to release your BO.
+
+define behavior for ZAP_C_PROD alias Product
+use etag
+{
+ field(readonly) phaseid;
+ field(readonly) change_time, changed_by, created_by, creation_time;
+  use create;
+  use update;
+  use delete;
+}

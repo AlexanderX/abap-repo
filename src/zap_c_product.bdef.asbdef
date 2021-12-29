@@ -1,11 +1,21 @@
 projection;
 
 
-define behavior for zap_c_product //alias <alias_name>
+define behavior for zap_c_product alias Product
+use etag
 {
 field(readonly) phaseid ;
  field(readonly) change_time, ChangedBy, CreatedBy, CreationTime, change_dat, change_tim;
   use create;
   use update;
   use delete;
+  use association _Market {create;}
+}
+define behavior for ZAP_C_PMARKET alias Market
+use etag
+{
+	field(readonly) ChangeTime, ChangedBy, CreatedBy, CreationTime;
+  use update;
+  use delete;
+  use association _Product;
 }

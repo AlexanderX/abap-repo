@@ -1,0 +1,4 @@
+@EndUserText.label: 'Product second'
+define service ZAP_UI_PROD {
+  expose ZAP_C_PROD as Product;
+}

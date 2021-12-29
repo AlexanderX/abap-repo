@@ -1,0 +1,13 @@
+managed implementation in class zbp_ap_i_prod unique;
+
+define behavior for ZAP_I_PROD alias Product
+persistent table ZAP_D_PRODUCT
+lock master
+etag master change_time
+{
+  field(readonly,numbering : managed) prod_uuid;
+  field(mandatory) prodid, pgid, price, price_currency;
+  create;
+  update;
+  delete;
+}

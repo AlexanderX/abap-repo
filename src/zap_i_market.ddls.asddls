@@ -1,5 +1,5 @@
 @EndUserText.label: 'Market'
-@AccessControl.authorizationCheck: #CHECK
+@AccessControl.authorizationCheck: #NOT_REQUIRED
 define root view entity ZAP_I_MARKET as select from zap_d_market {
     key mrktid as Mrktid,
     mrktname as Mrktname,

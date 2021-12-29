@@ -4,9 +4,9 @@
   <asx:values>
    <SRVB>
     <METADATA>
-     <NAME>ZAP_UI_PRODUCT_O2</NAME>
+     <NAME>ZAP_UI_PROD_O2</NAME>
      <TYPE>SRVB/SVB</TYPE>
-     <DESCRIPTION>Product</DESCRIPTION>
+     <DESCRIPTION>Product second try</DESCRIPTION>
      <LANGUAGE>EN</LANGUAGE>
      <LINKS>
       <item>
@@ -15,7 +15,7 @@
        <TITLE>Historic versions</TITLE>
       </item>
       <item>
-       <HREF>/sap/bc/adt/businessservices/odatav2/ZAP_UI_PRODUCT_O2</HREF>
+       <HREF>/sap/bc/adt/businessservices/odatav2/ZAP_UI_PROD_O2</HREF>
        <REL>http://www.sap.com/categories/odatav2</REL>
        <TYPE>application/vnd.sap.adt.businessservices.odatav2.v2+xml</TYPE>
        <TITLE>ODATAV2</TITLE>
@@ -43,26 +43,27 @@
     </METADATA>
     <CONTENT>
      <BIND_TYPE_IMPL>
-      <NAME>ZAP_UI_PRODUCT_O2</NAME>
+      <NAME>ZAP_UI_PROD_O2</NAME>
      </BIND_TYPE_IMPL>
      <BIND_TYPE>ODATA</BIND_TYPE>
      <BIND_TYPE_VERSION>V2</BIND_TYPE_VERSION>
      <SERVICES>
       <item>
-       <SERVICE_NAME>ZAP_UI_PRODUCT_O2</SERVICE_NAME>
+       <SERVICE_NAME>ZAP_UI_PROD_O2</SERVICE_NAME>
        <SERVICE_CONTENT>
         <item>
          <SERVICE_VERSION>0001</SERVICE_VERSION>
          <SRVD_REF>
-          <URI>/sap/bc/adt/ddic/srvd/sources/zap_ui_product</URI>
+          <URI>/sap/bc/adt/ddic/srvd/sources/zap_ui_prod</URI>
           <TYPE>SRVD/SRV</TYPE>
-          <NAME>ZAP_UI_PRODUCT</NAME>
+          <NAME>ZAP_UI_PROD</NAME>
          </SRVD_REF>
         </item>
        </SERVICE_CONTENT>
       </item>
      </SERVICES>
     </CONTENT>
+    <PUBLISHED>true</PUBLISHED>
     <BINDING_CREATED>true</BINDING_CREATED>
    </SRVB>
   </asx:values>

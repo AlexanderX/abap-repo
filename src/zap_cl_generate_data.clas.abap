@@ -24,11 +24,12 @@ CLASS Zap_CL_GENERATE_DATA IMPLEMENTATION.
 *** PRODUCT GROUPS
 *   fill internal table (itab)
 
+
     lt_prod_grs = VALUE #(
         ( pgid  = '1' pgname = 'Microwave'      imageurl = 'https://png.pngtree.com/png-clipart/20190517/original/pngtree-vector-microwave-oven-icon-png-image_4015182.jpg' )
         ( pgid  = '2' pgname = 'Coffee Machine' imageurl = 'https://icon-library.com/images/coffee-maker-icon/coffee-maker-icon-13.jpg' )
         ( pgid  = '3' pgname = 'Waffle Iron'    imageurl = 'https://previews.123rf.com/images/anatolir/anatolir1810/anatolir181004863/110698658-waffle-maker-icon-outline-style.jpg' )
-        ( pgid  = '4' pgname = 'Blender'        imageurl = 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRSLnFTOSs5ZV0d8pwhPzs4KANsvq1oZ7hyrg&usqp=CAU' )
+        ( pgid  = '4' pgname = 'Blender'        imageurl = 'https://image.flaticon.com/icons/png/512/916/916433.png' )
         ( pgid  = '5' pgname = 'Cooker'         imageurl = 'https://st4.depositphotos.com/18657574/22404/v/1600/depositphotos_224044856-stock-illustration-stove-concept-vector-linear-icon.jpg' )
      ).
 

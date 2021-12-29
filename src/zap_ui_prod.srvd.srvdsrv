@@ -1,4 +1,5 @@
-@EndUserText.label: 'Product second'
+@EndUserText.label: 'Swcond'
 define service ZAP_UI_PROD {
-  expose ZAP_C_PROD as Product;
+  expose zap_c_prod as Product;
+  expose ZAP_C_PMARK as Market;
 }

@@ -1,6 +1,7 @@
-managed implementation in class zbp_ap_i_prod unique;
+managed ;
 
 define behavior for ZAP_I_PROD alias Product
+implementation in class zcl_bp_i_prod unique
 persistent table ZAP_D_PRODUCT
 lock master
 etag master change_time
@@ -10,4 +11,17 @@ etag master change_time
   create;
   update;
   delete;
+  association _Market { create; }
+  determination SetPhase on modify { create; }
+  validation ValidateProdid on save { field prodid; create;  }
+}
+define behavior for ZAP_I_PMARK alias Market
+persistent table zap_d_prod_mrkt
+lock dependent by _Product
+etag master change_time
+{ update;
+delete;
+association _Product;
+field(numbering : managed, readonly ) mrkt_uuid;
+field( readonly ) prod_uuid;
 }

@@ -3,14 +3,11 @@
 {
 "FROM":
 [
-"ZAP_D_PRODUCT"
+"ZAP_D_PROD_MRKT"
 ],
 "ASSOCIATED":
 [
-"I_CURRENCY",
-"ZAP_I_PG",
-"ZAP_I_PHASE2",
-"ZAP_I_PMARK"
+"ZAP_I_PROD"
 ],
 "BASE":
 [],

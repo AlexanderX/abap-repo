@@ -1,7 +1,7 @@
 projection;
 //strict; //Comment this line in to enable strict mode. The strict mode is prerequisite to be future proof regarding syntax and to be able to release your BO.
 
-define behavior for ZAP_C_PROD alias Product
+define behavior for zap_c_prod alias Product
 use etag
 {
  field(readonly) phaseid;
@@ -9,4 +9,12 @@ use etag
   use create;
   use update;
   use delete;
+  use association _Market { create; }
+}
+define behavior for ZAP_C_PMARK alias Market
+use etag
+{
+ use update;
+ use delete;
+ use association _Product;
 }

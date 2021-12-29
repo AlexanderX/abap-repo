@@ -1,6 +1,7 @@
 @EndUserText.label: 'Products second try'
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 define root view entity ZAP_I_PROD as select from zap_d_product 
+composition [0..* ] of ZAP_I_PMARK as _Market
 association [0..1] to I_Currency      as _Currency on $projection.price_currency = _Currency.Currency
 association [0..1] to ZAP_I_PG      as _PGroup on $projection.pgid = _PGroup.pgid
 association [0..1] to ZAP_I_PHASE2     as _Phase on $projection.phaseid = _Phase.phaseid
@@ -32,5 +33,6 @@ association [0..1] to ZAP_I_PHASE2     as _Phase on $projection.phaseid = _Phase
     change_time,
     _Currency,
     _PGroup,
-    _Phase 
+    _Phase,
+    _Market
 }

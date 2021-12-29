@@ -6,7 +6,7 @@
                headerInfo.imageUrl: 'Url' }
 
 @Search.searchable: true
-define root view entity ZAP_C_PROD as projection on ZAP_I_PROD {
+define root view entity zap_c_prod as projection on ZAP_I_PROD {
  @UI.facet: [ { id:              'Product', 
                 type:            #COLLECTION,
                 label:           'General Information' },
@@ -31,7 +31,12 @@ define root view entity ZAP_C_PROD as projection on ZAP_I_PROD {
        type: #FIELDGROUP_REFERENCE,
        targetQualifier: '3re',
        label: 'Admin Data'
-       }]
+       },
+       { id:              'Market', 
+         purpose: #STANDARD,
+         type:            #LINEITEM_REFERENCE,
+         label:           'Market Data',
+         targetElement: '_Market'  }]
     @UI.hidden: true
     key prod_uuid,
         @UI: {
@@ -105,11 +110,14 @@ define root view entity ZAP_C_PROD as projection on ZAP_I_PROD {
           fieldGroup: [{position: 20, qualifier: '3re' }] }
     @Semantics.user.lastChangedBy: true
     changed_by,
-    @UI.hidden: true
+        @UI: {
+          identification: [ { position: 40, label: 'Changed On' } ],
+          fieldGroup: [{position: 30, qualifier: '3re' }] }
     @Semantics.systemDateTime.localInstanceLastChangedAt: true 
     change_time,
     /* Associations */
     _Currency,
     _PGroup,
-    _Phase
+    _Phase,
+    _Market : redirected to composition child ZAP_C_PMARK
 }

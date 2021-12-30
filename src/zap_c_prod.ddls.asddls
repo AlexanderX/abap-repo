@@ -57,8 +57,10 @@ define root view entity zap_c_prod as projection on ZAP_I_PROD {
           @UI.hidden: true
       _PGroup.Imageurl as Url,
        @UI: {
-          lineItem:       [ { position: 30, importance: #LOW, label: 'Phase', criticality: 'phaseid' }],
-          identification: [ { position: 30, label: 'Phase', criticality: 'phaseid'} ],
+          lineItem:       [ { position: 30, importance: #LOW, label: 'Phase', criticality: 'phaseid' },
+                            { type: #FOR_ACTION, dataAction: 'move_to_next_phase', label: 'Next Phase'}],
+          identification: [ { position: 30, label: 'Phase', criticality: 'phaseid'},
+                            { type: #FOR_ACTION, dataAction: 'move_to_next_phase', label: 'Next Phase'} ],
           fieldGroup: [{position: 10, qualifier: 'one' }] }
    @Consumption.valueHelpDefinition: [{ entity : {name: 'ZAP_I_PHASE2', element: 'phaseid'  } }]
    @Search.defaultSearchElement: true

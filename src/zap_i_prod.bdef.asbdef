@@ -12,6 +12,7 @@ etag master change_time
   update;
   delete;
   association _Market { create; }
+  action move_to_next_phase result [1] $self;
   determination SetPhase on modify { create; }
   validation ValidateProdid on save { field prodid; create;  }
 }

@@ -17,6 +17,7 @@ etag master change_time
   validation ValidateProdid on save { field prodid; create;  }
 }
 define behavior for ZAP_I_PMARK alias Market
+implementation in class zcl_bp_i_market unique
 persistent table zap_d_prod_mrkt
 lock dependent by _Product
 etag master change_time
@@ -25,4 +26,9 @@ delete;
 association _Product;
 field(numbering : managed, readonly ) mrkt_uuid;
 field( readonly ) prod_uuid;
+validation startDate on save { field startdate; create;  }
+validation endDate on save { field enddate; create;  }
+validation checkMarket on save { field market_id; create;  }
+validation dublicateCheck on save { field market_id; create;}
+action confirm result [1] $self;
 }

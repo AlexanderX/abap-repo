@@ -35,6 +35,7 @@ CLASS Zap_CL_GENERATE_DATA IMPLEMENTATION.
 
 *   Delete the possible entries in the database table - in case it was already filled
     DELETE FROM zap_d_prod_group.
+
 *   insert the new table entries
     INSERT zap_d_prod_group FROM TABLE @lt_prod_grs.
 

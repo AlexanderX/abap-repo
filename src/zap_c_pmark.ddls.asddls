@@ -5,7 +5,8 @@
 @UI: {
   headerInfo: { typeName: 'Market',
                 typeNamePlural: 'Markets',
-                title: { type: #STANDARD, value: 'mrktid' } } }
+                title: { type: #STANDARD, value: 'mrktid' } },
+                headerInfo.imageUrl: 'Url' }
 define view entity ZAP_C_PMARK as projection on ZAP_I_PMARK as Market
 {
      @UI.facet: [ { id:            'Market',
@@ -19,20 +20,31 @@ define view entity ZAP_C_PMARK as projection on ZAP_I_PMARK as Market
     key mrkt_uuid,
      @UI: {
           lineItem:       [ { position: 10, importance: #HIGH } ],
-          identification: [ { position: 10, label: 'Market ID' } ] }
+          identification: [ { position: 10, label: 'Market NM' } ] }
     @Search.defaultSearchElement: true
    mrktid,
-     @UI: {
+    @UI: {
           lineItem:       [ { position: 20, importance: #HIGH } ],
-          identification: [ { position: 20, label: 'Status' } ] }
+          identification: [ { position: 20, label: 'Market ID' } ] }
+   @Consumption.valueHelpDefinition: [{ entity : {name: 'ZAP_I_MARKET', element: 'Mrktid'  } }]
+      market_id,
+     @ObjectModel.text.element: ['Mname']
+      @UI.hidden: true
+      _CMarket.Mrktname as Mname,
+      @UI.hidden: true
+      _CMarket.Imageurl as Url,
+
+     @UI: {
+          lineItem:       [ { position: 30, importance: #HIGH } ],
+          identification: [ { position: 30, label: 'Status' } ] }
     status,
     @UI: {
-          lineItem:       [ { position: 30, importance: #HIGH } ],
-          identification: [ { position: 30, label: 'Start Dates' } ] }
+          lineItem:       [ { position: 40, importance: #HIGH } ],
+          identification: [ { position: 40, label: 'Start Dates' } ] }
     startdate,
     @UI: {
-          lineItem:       [ { position: 40, importance: #HIGH } ],
-          identification: [ { position: 40, label: 'end Date' } ] }
+          lineItem:       [ { position: 50, importance: #HIGH } ],
+          identification: [ { position: 50, label: 'end Date' } ] }
     enddate,
      @Semantics.user.createdBy: true 
     created_by,
@@ -43,5 +55,6 @@ define view entity ZAP_C_PMARK as projection on ZAP_I_PMARK as Market
      @Semantics.systemDateTime.localInstanceLastChangedAt: true 
     change_time,
     /* Associations */
-    _Product : redirected to parent zap_c_prod
+    _Product : redirected to parent zap_c_prod,
+    _CMarket
 }

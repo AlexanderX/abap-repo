@@ -3,11 +3,13 @@
 {
 "FROM":
 [
+"ZAP_I_MARKET",
 "ZAP_I_PMARK"
 ],
 "ASSOCIATED":
 [
-"ZAP_C_PROD"
+"ZAP_C_PROD",
+"ZAP_I_MARKET"
 ],
 "BASE":
 [

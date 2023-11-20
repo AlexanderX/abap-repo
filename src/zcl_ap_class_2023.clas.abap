@@ -1,14 +1,20 @@
-class ZCL_AP_CLASS_2023 definition
-  public
-  final
-  create public .
+CLASS zcl_ap_class_2023 DEFINITION
+  PUBLIC
+  FINAL
+  CREATE PUBLIC .
 
-public section.
-protected section.
-private section.
+  PUBLIC SECTION.
+  INTERFACES if_oo_adt_classrun.
+  PROTECTED SECTION.
+  PRIVATE SECTION.
 ENDCLASS.
 
 
 
-CLASS ZCL_AP_CLASS_2023 IMPLEMENTATION.
+CLASS zcl_ap_class_2023 IMPLEMENTATION.
+
+  METHOD if_oo_adt_classrun~main.
+    out->write( |Hello World!| ).
+  ENDMETHOD.
+
 ENDCLASS.

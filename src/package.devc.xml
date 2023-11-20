@@ -4,7 +4,8 @@
   <asx:values>
    <DEVC>
     <CTEXT>ZAP_PRODUCTS_RAP</CTEXT>
-    <TPCLASS>X</TPCLASS>
+    <COMP_POSID>AP-CME-DTY</COMP_POSID>
+    <COMPONENT>S6D0000008</COMPONENT>
    </DEVC>
   </asx:values>
  </asx:abap>

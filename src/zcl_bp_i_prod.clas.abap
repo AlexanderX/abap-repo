@@ -1,5 +1,13 @@
-CLASS zcl_bp_i_prod DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zap_i_prod.
+class ZCL_BP_I_PROD definition
+  public
+  create private .
+
+public section.
+protected section.
+private section.
 ENDCLASS.
 
-CLASS zcl_bp_i_prod IMPLEMENTATION.
+
+
+CLASS ZCL_BP_I_PROD IMPLEMENTATION.
 ENDCLASS.
